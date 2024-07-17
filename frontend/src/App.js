@@ -27,7 +27,7 @@ function App() {
         setGender={setGender} 
         setType1={setType1} 
         setType2={setType2} 
-        seFlavorText={setFlavorText} 
+        setFlavorText={setFlavorText} 
       />
       <PokeDisplay 
         name={name} 

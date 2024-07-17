@@ -1,8 +1,11 @@
 import React from 'react';
 
-function PokeDisplay({ name, number, image, height, weight, gender, type1, type2, flavorText }) {
+function PokeDisplay({ name, number, image, type1, type2, flavorText }) {
+  console.log('f', flavorText)
   return(
     <div>
+      <img src={image} />
+      <br></br>
       <label>
         Name:
       </label>

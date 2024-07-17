@@ -9,18 +9,18 @@ function PokeSearch({ setName, setNumber, setImage, setType1, setType2, setFlavo
       .then(res => {
         if (res.ok) {
           res.json().then(res => { 
-            console.log('res', res)
             setName(res.name[0].toUpperCase() + res.name.slice(1))
             setNumber(res.id)
             setImage(res.sprites.other['official-artwork'].front_default)
             getTypes(res.types)
+            getSpecies(res.id)
           })
         }
       })
   }
 
+  // Sets Pokemon types; "None" for Type2 if the Pokemon only has one type
   function getTypes(arr) {
-    console.log(arr)
     const type = arr.map(type => type.type.name[0].toUpperCase() + type.type.name.slice(1));
     if (type.length === 1) {
       setType1(type[0])
@@ -29,7 +29,17 @@ function PokeSearch({ setName, setNumber, setImage, setType1, setType2, setFlavo
       setType1(type[0])
       setType2(type[1])
     }
-    console.log('type', type)
+  }
+
+  function getSpecies(id) {
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+      .then(res => {
+        if (res.ok) {
+          res.json().then(res => {
+            setFlavorText(res.flavor_text_entries[0].flavor_text)
+          })
+        }
+      })
   }
 
   return (
