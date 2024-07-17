@@ -4,8 +4,13 @@ import PokeSearch from "./Components/PokeSearch";
 import PokeDisplay from './Components/PokeDisplay';
 import AddToTeam from './Components/AddToTeam';
 import AddToFavorites from './Components/AddToFavorites';
+import DeleteTeamMember from './Components/DeleteTeamMember';
+import DeleteFavorite from './Components/DeleteFavorite';
+import TeamDisplay from './Components/TeamDisplay';
+import FavoriteDisplay from './Components/FavoriteDisplay';
 
 function App() {
+  const [id, setId] = useState(0);
   const [name, setName] = useState("");
   const [number, setNumber] = useState(0);
   const [image, setImage] = useState("");
@@ -17,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <PokeSearch 
+        setId={setId}
         setName={setName} 
         setNumber={setNumber} 
         setImage={setImage} 
@@ -25,6 +31,7 @@ function App() {
         setFlavorText={setFlavorText} 
       />
       <PokeDisplay 
+        id={id}
         name={name} 
         number={number} 
         image={image} 
@@ -34,6 +41,7 @@ function App() {
         altText={altText}
       />
       <AddToTeam 
+        p_id={id}
         p_name={name}
         p_number={number} 
         p_image={image} 
@@ -41,7 +49,10 @@ function App() {
         p_type2={type2} 
         p_flavorText={flavorText} 
       />
+      <TeamDisplay altText={altText} />
+      <DeleteTeamMember id={id} />
       <AddToFavorites 
+        p_id={id}
         p_name={name}
         p_number={number} 
         p_image={image} 
@@ -49,6 +60,8 @@ function App() {
         p_type2={type2}          
         p_flavorText={flavorText} 
       />
+      <FavoriteDisplay altText={altText} />
+      <DeleteFavorite id={id} />
     </div>
   );
 }
