@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import PokeSearch from "./Components/PokeSearch";
 import PokeDisplay from './Components/PokeDisplay';
 import AddToTeam from './Components/AddToTeam';
+import AddToFavorites from './Components/AddToFavorites';
 
 function App() {
   const [name, setName] = useState("");
@@ -11,7 +12,8 @@ function App() {
   const [type1, setType1] = useState("");
   const [type2, setType2] = useState("");
   const [flavorText, setFlavorText] = useState("");
-  
+  const altText = `Image of the Pokémon ${name}.`
+
   return (
     <div className="App">
       <PokeSearch 
@@ -28,7 +30,8 @@ function App() {
         image={image} 
         type1={type1} 
         type2={type2} 
-        flavorText={flavorText} 
+        flavorText={flavorText}
+        altText={altText}
       />
       <AddToTeam 
         p_name={name}
@@ -36,6 +39,14 @@ function App() {
         p_image={image} 
         p_type1={type1} 
         p_type2={type2} 
+        p_flavorText={flavorText} 
+      />
+      <AddToFavorites 
+        p_name={name}
+        p_number={number} 
+        p_image={image} 
+        p_type1={type1} 
+        p_type2={type2}          
         p_flavorText={flavorText} 
       />
     </div>
