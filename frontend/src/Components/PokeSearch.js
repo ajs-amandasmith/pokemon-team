@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import PokeDisplay from "./PokeDisplay";
 
-function PokeSearch({ setName, setNumber, setImage, setType1, setType2, setFlavorText, name, number, image, type1, type2, flavorText, altText, id }) {
+function PokeSearch({id, setId }) {
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState(0);
+  const [image, setImage] = useState("");
+  const [type1, setType1] = useState("");
+  const [type2, setType2] = useState("");
+  const [flavorText, setFlavorText] = useState("");
+  const altText = `Image of the Pokémon ${name}.`
   const [pokemon, setPokemon] = useState('');
 
   function handlePokeSearch(e) {
@@ -44,30 +51,32 @@ function PokeSearch({ setName, setNumber, setImage, setType1, setType2, setFlavo
   }
 
   return (
-    <div>
-      <form onSubmit={handlePokeSearch}>
-        <label htmlFor="poke-search">Search for a Pokémon</label>
-        <br></br>
-        <input
-          type="text"
-          placeholder="Pokemon"
-          id="poke-search"
-          value={pokemon}
-          onChange={e => setPokemon(e.target.value)}
-        />
-        <br></br>
-        <button type="submit" className="btn-search">Search</button>
-      </form>
-      <PokeDisplay 
-              id={id}
-              name={name} 
-              number={number} 
-              image={image} 
-              type1={type1} 
-              type2={type2} 
-              flavorText={flavorText}
-              altText={altText}
-            />
+    <div className="flex flex-col">
+      <div className="flex">
+        <form onSubmit={handlePokeSearch} className="p-10">
+          <label htmlFor="poke-search">Search for a Pokémon</label>
+          <br></br>
+          <input
+            type="text"
+            className="border-2"
+            placeholder="Pokemon"
+            id="poke-search"
+            value={pokemon}
+            onChange={e => setPokemon(e.target.value)}
+          />
+          <br></br>
+          <button type="submit" className="border bg-gray-300">Search</button>
+        </form>
+        <PokeDisplay 
+                name={name} 
+                number={number} 
+                image={image} 
+                type1={type1} 
+                type2={type2} 
+                flavorText={flavorText}
+                altText={altText}
+              />
+      </div>
     </div>
   )
 };

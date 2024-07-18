@@ -1,31 +1,36 @@
 import React from 'react';
+import AddToTeam from './AddToTeam';
+import AddToFavorites from './AddToFavorites';
 
-function PokeDisplay({ name, number, image, type1, type2, flavorText, altText }) {
+function PokeDisplay({ name, number, image, type1, type2, flavorText, altText, id }) {
  
   return(
     <div>
-      <img src={image} alt={altText} />
+      <img src={image} alt={altText} height={300} width={300}/>
       <br></br>
-      <label>
-        Name:
-      </label>
-      <p>{name}</p>
-      <label>
-        National Number:
-      </label>
-        <p>{number}</p>
-      <label>
-        Type 1:
-      </label>
-        <p>{type1}</p>
-      <label>
-        Type 2:
-      </label>
-        <p>{type2}</p>
-      <label>
-        Flavor Text
-      </label>
-        <p>{flavorText}</p>
+       <p><strong>Name:</strong> {name}</p>
+      <p><strong>National Number:</strong> {number}</p>
+      <p><strong>Type 1:</strong> {type1}</p>
+      <p><strong>Type 2:</strong> {type2}</p>
+      <p><strong>Flavor Text:</strong> {flavorText}</p>
+      <div>
+        <AddToTeam 
+          p_name={name}
+          p_number={number}
+          p_image={image}
+          p_type1={type1}
+          p_type2={type2}
+          p_flavorText={flavorText}
+        />
+        <AddToFavorites 
+          p_name={name}
+          p_number={number}
+          p_image={image}
+          p_type1={type1}
+          p_type2={type2}
+          p_flavorText={flavorText}
+        />
+      </div>
     </div>
   )
 }

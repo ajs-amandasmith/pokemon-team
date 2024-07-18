@@ -1,10 +1,12 @@
 import React from "react";
 
-function AddToTeam({ p_name, p_number, p_image, p_type1, p_type2, p_flavorText }) {
+function AddToTeam({ p_name, p_number, p_image, p_type1, p_type2, p_flavorText, p_id }) {
+
+  
 
   function addTeamPoke(e) {
     e.preventDefault()
-    fetch("http://localhost:8000/api/team_members/", {
+      fetch("http://localhost:8000/api/team_members/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -19,7 +21,7 @@ function AddToTeam({ p_name, p_number, p_image, p_type1, p_type2, p_flavorText }
       })
     }).then(res => {
         if (res.ok) {
-          res.json().then(data => console.log(data))
+          res.json().then(data => alert("Added to your Team"))
         } else {
           res.json().then(err => console.log(err))
         }
@@ -30,7 +32,7 @@ function AddToTeam({ p_name, p_number, p_image, p_type1, p_type2, p_flavorText }
   return(
     <div>
       <form onSubmit={addTeamPoke}>
-        <button>
+        <button className="border bg-gray-300 mt-5 p-2 rounded">
           Add To Your Team?
         </button>
       </form>

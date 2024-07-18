@@ -7,45 +7,17 @@ import FavoriteDisplay from './Components/FavoriteDisplay';
 import NavBar from './Components/NavBar';
 
 function App() {
-  const [id, setId] = useState(0);
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState(0);
-  const [image, setImage] = useState("");
-  const [type1, setType1] = useState("");
-  const [type2, setType2] = useState("");
-  const [flavorText, setFlavorText] = useState("");
-  const altText = `Image of the Pokémon ${name}.`
+  const [id, setId] = useState(null)
 
   return (
     <BrowserRouter>
       <NavBar />
         <Routes>
-          <Route exact path="/" element={
-            <PokeSearch
-              setId={setId}
-              setName={setName}
-              setNumber={setNumber}
-              setImage={setImage}
-              setType1={setType1}
-              setType2={setType2}
-              setFlavorText={setFlavorText}
-              p_id={id}
-              p_name={name}
-              p_number={number} 
-              p_image={image} 
-              p_type1={type1} 
-              p_type2={type2} 
-              p_flavorText={flavorText} 
-            />
-          }>
+          <Route exact path="/" element={<PokeSearch id={id} setId={setId} />}>
           </Route>
-          <Route path="/team" element={
-            <TeamDisplay altText={altText} />
-          }>
+          <Route path="/team" element={<TeamDisplay id={id} setId={setId} />}>
           </Route>
-          <Route path="favorites" element={
-            <FavoriteDisplay altText={altText} />
-          }>
+          <Route path="favorites" element={<FavoriteDisplay id={id} setId={setId} />}>
           </Route>
         </Routes>
     </BrowserRouter>

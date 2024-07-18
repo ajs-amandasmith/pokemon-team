@@ -1,18 +1,18 @@
 import React from "react";
 
-function DeleteTeamMember({ id }) {
+function DeleteTeamMember({ id, setTeam }) {
+  console.log('ssss', id)
 
   function handleDelete() {
+    console.log('bbbb', id)
     fetch(`http://localhost:8000/api/team_members/${id}`, {
       method: "DELETE"
     })
-
   }
+  
   return(
     <div>
-      <form onSubmit={handleDelete}>
-        <button type="submit" >Delete From Team?</button>
-      </form>
+      <button className="border bg-gray-300 m-10 rounded p-2" onClick={handleDelete}>Delete From Team?</button>
     </div>
   )
 }

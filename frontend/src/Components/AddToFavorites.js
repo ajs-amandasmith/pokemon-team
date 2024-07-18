@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddToFavorites({ p_name, p_number, p_image, p_type1, p_type2, p_flavorText }) {
+function AddToFavorites({ p_name, p_number, p_image, p_type1, p_type2, p_flavorText, p_id }) {
 
   function addFavoritePoke(e) {
     e.preventDefault()
@@ -15,11 +15,12 @@ function AddToFavorites({ p_name, p_number, p_image, p_type1, p_type2, p_flavorT
         image: p_image,
         type1: p_type1,
         type2: p_type2,
-        flavor_text: p_flavorText
+        flavor_text: p_flavorText,
+        id: p_id
       })
     }).then(res => {
         if (res.ok) {
-          res.json().then(data => console.log(data))
+          res.json().then(data => alert("Added to Favorites!"))
         } else {
           res.json().then(err => console.log(err))
         }
@@ -30,7 +31,7 @@ function AddToFavorites({ p_name, p_number, p_image, p_type1, p_type2, p_flavorT
   return(
     <div>
       <form onSubmit={addFavoritePoke}>
-        <button>
+        <button className="border bg-gray-300 mt-5 p-2 rounded">
           Add To Your Favorites?
         </button>
       </form>
