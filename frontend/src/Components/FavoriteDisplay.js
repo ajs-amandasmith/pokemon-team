@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import DeleteFavorite from './DeleteFavorite';
 
-function FavoriteDisplay({ altText }) {
+function FavoriteDisplay({ altText, id }) {
   const [favorites, setFavorites] = useState([]);
   const [show, setShow] = useState(false);
 
@@ -54,6 +55,16 @@ function FavoriteDisplay({ altText }) {
            {showFavorites} 
         </div> : null
         }
+        <DeleteFavorite id={id} />
+        <AddToFavorites 
+        p_id={id}
+        p_name={name}
+        p_number={number} 
+        p_image={image} 
+        p_type1={type1} 
+        p_type2={type2}          
+        p_flavorText={flavorText} 
+      />
     </div>
   )
 }

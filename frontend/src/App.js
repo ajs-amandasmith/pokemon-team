@@ -1,13 +1,10 @@
 import './App.css';
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PokeSearch from "./Components/PokeSearch";
-import PokeDisplay from './Components/PokeDisplay';
-import AddToTeam from './Components/AddToTeam';
-import AddToFavorites from './Components/AddToFavorites';
-import DeleteTeamMember from './Components/DeleteTeamMember';
-import DeleteFavorite from './Components/DeleteFavorite';
 import TeamDisplay from './Components/TeamDisplay';
 import FavoriteDisplay from './Components/FavoriteDisplay';
+import NavBar from './Components/NavBar';
 
 function App() {
   const [id, setId] = useState(0);
@@ -20,49 +17,38 @@ function App() {
   const altText = `Image of the Pokémon ${name}.`
 
   return (
-    <div className="App">
-      <PokeSearch 
-        setId={setId}
-        setName={setName} 
-        setNumber={setNumber} 
-        setImage={setImage} 
-        setType1={setType1} 
-        setType2={setType2} 
-        setFlavorText={setFlavorText} 
-      />
-      <PokeDisplay 
-        id={id}
-        name={name} 
-        number={number} 
-        image={image} 
-        type1={type1} 
-        type2={type2} 
-        flavorText={flavorText}
-        altText={altText}
-      />
-      <AddToTeam 
-        p_id={id}
-        p_name={name}
-        p_number={number} 
-        p_image={image} 
-        p_type1={type1} 
-        p_type2={type2} 
-        p_flavorText={flavorText} 
-      />
-      <TeamDisplay altText={altText} />
-      <DeleteTeamMember id={id} />
-      <AddToFavorites 
-        p_id={id}
-        p_name={name}
-        p_number={number} 
-        p_image={image} 
-        p_type1={type1} 
-        p_type2={type2}          
-        p_flavorText={flavorText} 
-      />
-      <FavoriteDisplay altText={altText} />
-      <DeleteFavorite id={id} />
-    </div>
+    <BrowserRouter>
+      <NavBar />
+        <Routes>
+          <Route exact path="/" element={
+            <PokeSearch
+              setId={setId}
+              setName={setName}
+              setNumber={setNumber}
+              setImage={setImage}
+              setType1={setType1}
+              setType2={setType2}
+              setFlavorText={setFlavorText}
+              p_id={id}
+              p_name={name}
+              p_number={number} 
+              p_image={image} 
+              p_type1={type1} 
+              p_type2={type2} 
+              p_flavorText={flavorText} 
+            />
+          }>
+          </Route>
+          <Route path="/team" element={
+            <TeamDisplay altText={altText} />
+          }>
+          </Route>
+          <Route path="favorites" element={
+            <FavoriteDisplay altText={altText} />
+          }>
+          </Route>
+        </Routes>
+    </BrowserRouter>
   );
 }
 

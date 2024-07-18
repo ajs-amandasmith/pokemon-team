@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import DeleteTeamMember from './DeleteTeamMember';
 
-function TeamDisplay({ altText }) {
+function TeamDisplay({ altText, id }) {
   const [team, setTeam] = useState([]);
   const [show, setShow] = useState(false);
 
@@ -53,8 +54,19 @@ function TeamDisplay({ altText }) {
         <div>
            {showTeam} 
         </div> : null
-        }
+        } 
+            <AddToTeam 
+        p_id={id}
+        p_name={name}
+        p_number={number} 
+        p_image={image} 
+        p_type1={type1} 
+        p_type2={type2} 
+        p_flavorText={flavorText} 
+      />
+        <DeleteTeamMember id={id} />
     </div>
+   
   )
 }
 

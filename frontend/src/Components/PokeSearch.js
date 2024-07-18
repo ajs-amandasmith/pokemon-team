@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import PokeDisplay from "./PokeDisplay";
 
-function PokeSearch({ setName, setNumber, setImage, setType1, setType2, setFlavorText }) {
+function PokeSearch({ setName, setNumber, setImage, setType1, setType2, setFlavorText, name, number, image, type1, type2, flavorText, altText, id }) {
   const [pokemon, setPokemon] = useState('');
 
   function handlePokeSearch(e) {
@@ -57,6 +58,16 @@ function PokeSearch({ setName, setNumber, setImage, setType1, setType2, setFlavo
         <br></br>
         <button type="submit" className="btn-search">Search</button>
       </form>
+      <PokeDisplay 
+              id={id}
+              name={name} 
+              number={number} 
+              image={image} 
+              type1={type1} 
+              type2={type2} 
+              flavorText={flavorText}
+              altText={altText}
+            />
     </div>
   )
 };
