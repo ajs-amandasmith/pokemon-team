@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k!yx08ss627(6y5rfmevow-^5*%_6o7#!1_650$w-2tagzxctt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [44.208.41.34]
+ALLOWED_HOSTS = ['44.208.41.34', 'localhost', 'http://ajs.amandasmith-pokemon.s3-website-us-east-1.amazonaws.com']
 
 
 # Application definition
