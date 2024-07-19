@@ -4,7 +4,7 @@ function AddToFavorites({ p_name, p_number, p_image, p_type1, p_type2, p_flavorT
 
   function addFavoritePoke(e) {
     e.preventDefault()
-    fetch("http://localhost:8000/api/favorites/", {
+    fetch("http://44.208.41.34/api/favorites/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
