@@ -6,7 +6,7 @@ function TeamDisplay({ altText }) {
   const [id, setId] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/team_members/")
+    fetch("http://44.208.41.34/api/team_members/")
       .then(res => {
         if (res.ok) {
           res.json().then(res => {

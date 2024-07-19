@@ -6,7 +6,7 @@ function FavoriteDisplay({ altText}) {
   const [id, setId] = useState(null)
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/favorites/")
+    fetch("http://44.208.41.34/api/favorites/")
       .then(res => {
         if (res.ok) {
           res.json().then(res => {

@@ -3,7 +3,7 @@ import React from "react";
 function DeleteFavorite({ id }) {
   console.log('f', id)
   function handleDelete() {
-    fetch(`http://localhost:8000/api/favorites/${id}`, {
+    fetch(`http://44.208.41.34/api/favorites/${id}`, {
       method: "DELETE"
     })
 

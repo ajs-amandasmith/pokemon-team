@@ -6,7 +6,7 @@ function AddToTeam({ p_name, p_number, p_image, p_type1, p_type2, p_flavorText, 
 
   function addTeamPoke(e) {
     e.preventDefault()
-      fetch("http://localhost:8000/api/team_members/", {
+      fetch("http://44.208.41.34/api/team_members/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
