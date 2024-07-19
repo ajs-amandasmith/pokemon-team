@@ -6,7 +6,11 @@ function DeleteTeamMember({ id, setTeam }) {
   function handleDelete() {
     console.log('bbbb', id)
     fetch(`http://44.208.41.34/api/team_members/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
+      headers: {
+        "Content-Type": 'application/json',
+        "Access-Control-Allow-Origin": "http://44.208.41.34"
+      }
     })
   }
 
