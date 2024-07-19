@@ -32,7 +32,7 @@ function FavoriteDisplay({ altText}) {
   return(
     <div className='flex flex-col'>
       {showFavorites} 
-      <div className=""><DeleteFavorite id={id} setTeam={setFavorites} /></div>
+      <div className=""><DeleteFavorite id={id} setFavorites={setFavorites} /></div>
     </div>
   )
 }

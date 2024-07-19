@@ -28,7 +28,6 @@ function TeamDisplay({ altText }) {
         </ul>
     </div>
   ))
-console.log('blah', id)
 
   return(
     <div className='flex flex-col'>

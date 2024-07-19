@@ -1,19 +1,13 @@
 import React from "react";
 
-function DeleteTeamMember({ id, setTeam }) {
-  console.log('ssss', id)
+function DeleteTeamMember({ id }) {
 
   function handleDelete() {
-    console.log('bbbb', id)
     fetch(`http://44.208.41.34/api/team_members/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": 'application/json',
-        "Access-Control-Allow-Origin": "http://44.208.41.34"
-      }
     })
+    .then(data => alert("Deleted from your team"))
   }
-
   return(
     <div>
       <button className="border bg-gray-300 m-10 rounded p-2" onClick={handleDelete}>Delete From Team?</button>
